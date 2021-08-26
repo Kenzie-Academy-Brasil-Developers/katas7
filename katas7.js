@@ -101,3 +101,17 @@ const newIndexOf = (arr, searchValue, start = 0) => {
     return -1
 }
 
+const newJoin = (arr, callback) => {
+    let output = ''
+    for (let i = 0; i < arr.length; i++){
+        output += `${arr[i]}${callback}`
+    }
+    return output
+}
+
+const newReduce = (arr, callback) => {
+    let acumulador = 0
+    for (let i = 0; i < arr.length; i++){
+
+    }
+}
