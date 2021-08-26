@@ -4,7 +4,6 @@ const newForEach = (arr, callback) => {
         callback(currentValue, i, arr)
     }
 }
-const numbers = [5, 12, 8, 130, 44]
 
 const newFill = (arr, filler, start = 0, end = arr.length) => {
     for (let i = start; i < end; i++) {
@@ -110,8 +109,10 @@ const newJoin = (arr, callback) => {
 }
 
 const newReduce = (arr, callback) => {
-    let acumulador = 0
-    for (let i = 0; i < arr.length; i++){
-
+    let acumulador = null
+    for (let i = 1; i < arr.length; i++) {
+        const currentValue = arr[i]
+        acumulador = callback(acumulador, currentValue, i, arr)
     }
+    return acumulador
 }
