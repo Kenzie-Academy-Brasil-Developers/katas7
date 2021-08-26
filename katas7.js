@@ -110,8 +110,10 @@ const newJoin = (arr, callback) => {
 }
 
 const newReduce = (arr, callback) => {
-    let acumulador = 0
-    for (let i = 0; i < arr.length; i++){
-
+    let acumulador = null
+    for (let i = 1; i < arr.length; i++) {
+        const currentValue = arr[i]
+        acumulador = callback(acumulador, currentValue, i, arr)
     }
+    return acumulador
 }
