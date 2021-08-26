@@ -50,3 +50,54 @@ const newFindIndex = (arr, callback) => {
     return -1
 }
 
+const newEvery = (arr, callback) => {
+    let retorno = false
+    for (let i = 0; i < arr.length; i++) {
+        let currentValue = arr[i]
+        if(callback(currentValue, i, arr)){
+            retorno = true
+        }
+        if(!callback(currentValue, i, arr)){
+            return false
+        }
+    }
+    return retorno
+}
+
+const newFilter = (arr, callback) => {
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        let currentValue = arr[i]
+        if(callback(currentValue, i, arr)){
+            newArr.push(currentValue)
+        }
+    }
+    return newArr
+}
+
+const newConcat = (arr, callback) => {
+    let newArr = [...arr]
+    for (let i = 0; i < callback.length; i++) {
+        newArr.push(callback[i])
+    }
+    return newArr
+}
+
+const newIncludes = (arr, searchValue, start = 0) => {
+    for (let i = start; i < arr.length; i++) {
+        if(searchValue === arr [i]) {
+            return true
+        }
+    }
+    return false
+}
+
+const newIndexOf = (arr, searchValue, start = 0) => {
+    for (let i = start; i < arr.length; i++) {
+        if(searchValue === arr [i]) {
+            return i
+        }
+    }
+    return -1
+}
+
